@@ -1,14 +1,20 @@
 ﻿
 syntax = "proto3";
+                                ///syntax表示使用ProtocolBuffer版本，在此均使用proto3
 package gRPCDemo;
-service gRPC {
+                                ///package等价与namespace命名空间，其中gRPCDemo表示空间名
+service gRPC {                  ///service gRPC 为RPC服务标识，可看做一个service类，在类中定义了协议中的函数
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+                                ///rpc为标识，SayHello为函数名，为输入类HelloRequest（在后面需要定义这个类）
+                                //returns (HelloReply)表示返回（returns）一个类（HelloReply）需要定义
   rpc Getlsit (HelloRequest) returns (list1){}
+                                //同上
 }
- 
+								///在此来定义上面service中输入输出类
 message HelloRequest {
-  string name = 1;
-}
+								///message等价与class，与上面service相同，只是service是一个特殊标识，其中类名为HelloRequest
+  string name = 1;				///{}中表示类中的字段，其中包括属性、类别、名字以及默认值，其中字段被省略（默认optimal可选字段）
+}								///类别为string（还有许多，将用最多的为bytes），字段名为name
 message list1 {
  bytes listbyte=1;
 }
