@@ -1,0 +1,18 @@
+﻿
+syntax = "proto3";
+package gRPCDemo;
+service gRPC {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc Getlsit (HelloRequest) returns (list1){}
+}
+ 
+message HelloRequest {
+  string name = 1;
+}
+message list1 {
+ bytes listbyte=1;
+}
+
+message HelloReply {
+  string message = 1;
+}
